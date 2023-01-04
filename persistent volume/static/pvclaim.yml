@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: demo-pvc
+spec:
+  storageClassName: ssd # Empty string must be explicitly set otherwise default StorageClass will be set
+  # volumeName: demo-pv2
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Mi

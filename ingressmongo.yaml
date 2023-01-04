@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-app
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx
+  rules:
+ #   - host: hello-worldapp.com
+  - http:
+        paths:
+          - path: /front
+            pathType: Prefix
+            backend:
+              service:
+                name: nginx-svc
+                port:
+                  number: 80
+
+          - path: /nodejs
+            pathType: Prefix
+            backend:
+              service:
+                name:  my-nodejs
+                port:
+                  number: 4000

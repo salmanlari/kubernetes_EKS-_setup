@@ -1,0 +1,74 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-config
+data:
+  default.conf: |
+    server {
+        listen 80;
+        root /usr/share/nginx/html/;
+        index index.html  index.nginx-debian.html;
+        server_name abc.com;
+    }
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  selector:
+    matchLabels:
+      app: nginx
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 80
+
+        readinessProbe:
+          httpGet:
+           scheme: HTTP
+           path: /
+           port: 8080
+          initialDelaySeconds: 50
+          periodSeconds: 5
+
+        livenessProbe:
+          httpGet:
+           scheme: HTTP
+           path: /
+           port: 80
+          initialDelaySeconds: 5
+          periodSeconds: 5
+
+
+
+        volumeMounts:
+          - name: nginx-conf
+            mountPath: /etc/nginx/conf.d/default.conf
+            subPath: default.conf
+            readOnly: true
+
+          # - mountPath: /var/log/nginx
+          #   name: testvolume  
+
+      volumes:
+      - name: nginx-conf
+        configMap:
+          name: nginx-config
+          items:
+            - key: default.conf
+              path: default.conf
+
+      # - name: testvolume
+      #   hostPath:
+      #     path: /data2        
+      #     type: Directory

@@ -1,0 +1,155 @@
+
+#mongodb deplyoment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongodb-deployment
+  labels:
+    app: mongodb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mongodb
+  template:
+    metadata:
+      labels:
+        app: mongodb
+
+    spec:
+      containers:
+      - name: mongodb
+        image: mongo:latest
+        ports:
+        - containerPort: 27017
+        volumeMounts:
+          - mountPath: /data/db
+            name: mongo-volume
+        env:
+        - name:  MONGO_INITDB_ROOT_USERNAME
+          value: root 
+        - name:  MONGO_INITDB_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+                        name: mongodb-secret
+                        key: password
+        - name: MONGODB_DATABASE
+          value: "db"
+      volumes: 
+      - name: mongo-volume
+
+
+# Nodejs Deployment
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodejs-deployment
+  labels:
+    app: nodejs
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nodejs
+  template:
+    metadata:
+      labels:
+        app: nodejs
+    spec:
+      containers:
+      - name: nodejs
+        image: docker.io/toshibrat/my-images:latest
+        ports:
+        - containerPort: 4000
+        env:
+        - name: MONGODB_HOST
+          value: "172.20.44.193"
+        - name: MONGODB_PORT
+          value: "27017"
+        - name: MONGODB_USER
+          value: "root"
+        - name: MONGODB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+                        name: mongodb-secret
+                        key: password
+        - name: MONGODB_DATABASE
+          value: "db"
+
+
+# Nginx Deployment
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    app: nginx
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: toshibrat/my-images:nginx
+        ports:
+        - containerPort: 80
+
+#services
+
+# mongodb services
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-mongodb
+  labels:
+    name: my-mongodb
+spec:
+  ports:
+    - port: 27017
+      name: mongodb
+  selector:
+    app: mongodb
+
+#nodejs services
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-nodejs
+  labels:
+    name: my-nodejs
+spec:
+  ports:
+    - port: 4000
+      name: nodejs
+  selector:
+    app: nodejs
+
+#nginx services
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-svc
+  labels:
+    name: nginx-svc
+spec:
+  # type: NodePort
+  ports:
+    - port: 80
+      # nodePort: 30199
+      name: nginx
+  selector:
+    app: nginx
+     
+
+

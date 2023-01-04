@@ -1,0 +1,123 @@
+* 
+* ==> Audit <==
+* |---------|-----------------------------------------------|----------|--------|---------|---------------------|---------------------|
+| Command |                     Args                      | Profile  |  User  | Version |     Start Time      |      End Time       |
+|---------|-----------------------------------------------|----------|--------|---------|---------------------|---------------------|
+| kubectl | -- delete service my-nginx                    | minikube | admin1 | v1.27.1 | 13 Oct 22 13:07 IST | 13 Oct 22 13:07 IST |
+| kubectl | -- delete service my-httpd                    | minikube | admin1 | v1.27.1 | 13 Oct 22 13:07 IST | 13 Oct 22 13:07 IST |
+| kubectl | -- get all                                    | minikube | admin1 | v1.27.1 | 13 Oct 22 13:07 IST | 13 Oct 22 13:07 IST |
+| kubectl | -- delete pod                                 | minikube | admin1 | v1.27.1 | 13 Oct 22 13:08 IST | 13 Oct 22 13:08 IST |
+|         | my-httpd-68c9dccdc-4x4mp                      |          |        |         |                     |                     |
+|         | my-nginx-75d4b769f6-2pjhd                     |          |        |         |                     |                     |
+|         | my-httpd-68c9dccdc-q84zd                      |          |        |         |                     |                     |
+| kubectl | -- delete pod                                 | minikube | admin1 | v1.27.1 | 13 Oct 22 13:08 IST |                     |
+|         | my-nginx-75d4b769f6-2pjhd                     |          |        |         |                     |                     |
+| kubectl | -- apply -f deplyoment.yml                    | minikube | admin1 | v1.27.1 | 13 Oct 22 13:08 IST | 13 Oct 22 13:08 IST |
+| kubectl | -- get all                                    | minikube | admin1 | v1.27.1 | 13 Oct 22 13:08 IST | 13 Oct 22 13:08 IST |
+| kubectl | -- get all                                    | minikube | admin1 | v1.27.1 | 13 Oct 22 13:09 IST | 13 Oct 22 13:09 IST |
+| kubectl | -- delete service my-nginx                    | minikube | admin1 | v1.27.1 | 13 Oct 22 13:11 IST | 13 Oct 22 13:11 IST |
+| kubectl | -- get all                                    | minikube | admin1 | v1.27.1 | 13 Oct 22 13:11 IST | 13 Oct 22 13:11 IST |
+| kubectl | -- apply -f deplyoment.yml                    | minikube | admin1 | v1.27.1 | 13 Oct 22 13:11 IST | 13 Oct 22 13:11 IST |
+| kubectl | -- get all                                    | minikube | admin1 | v1.27.1 | 13 Oct 22 13:11 IST | 13 Oct 22 13:11 IST |
+| kubectl | -- get all                                    | minikube | admin1 | v1.27.1 | 13 Oct 22 13:11 IST | 13 Oct 22 13:11 IST |
+| kubectl | -- describe                                   | minikube | admin1 | v1.27.1 | 13 Oct 22 13:12 IST |                     |
+|         | my-nginx-7f9485cc84-tpxmc                     |          |        |         |                     |                     |
+| kubectl | -- describe pod                               | minikube | admin1 | v1.27.1 | 13 Oct 22 13:12 IST | 13 Oct 22 13:12 IST |
+|         | my-nginx-7f9485cc84-tpxmc                     |          |        |         |                     |                     |
+| kubectl | -- apply -f deplyoment.yml                    | minikube | admin1 | v1.27.1 | 13 Oct 22 13:18 IST | 13 Oct 22 13:18 IST |
+| kubectl | -- get all                                    | minikube | admin1 | v1.27.1 | 13 Oct 22 13:19 IST | 13 Oct 22 13:19 IST |
+| kubectl | -- get all                                    | minikube | admin1 | v1.27.1 | 13 Oct 22 13:19 IST | 13 Oct 22 13:19 IST |
+| kubectl | -- exec -it                                   | minikube | admin1 | v1.27.1 | 13 Oct 22 13:20 IST |                     |
+|         | my-nginx-7f9485cc84-tpxmc bash                |          |        |         |                     |                     |
+| kubectl | -- apply -f deplyoment.yml                    | minikube | admin1 | v1.27.1 | 13 Oct 22 13:20 IST | 13 Oct 22 13:20 IST |
+| kubectl | -- get all                                    | minikube | admin1 | v1.27.1 | 13 Oct 22 13:21 IST | 13 Oct 22 13:21 IST |
+| kubectl | -- delete service my-nginx                    | minikube | admin1 | v1.27.1 | 13 Oct 22 13:21 IST | 13 Oct 22 13:21 IST |
+| kubectl | -- get all                                    | minikube | admin1 | v1.27.1 | 13 Oct 22 13:21 IST | 13 Oct 22 13:21 IST |
+| kubectl | -- apply -f deplyoment.yml                    | minikube | admin1 | v1.27.1 | 13 Oct 22 13:21 IST | 13 Oct 22 13:21 IST |
+| kubectl | -- get all                                    | minikube | admin1 | v1.27.1 | 13 Oct 22 13:22 IST | 13 Oct 22 13:22 IST |
+| kubectl | -- exec -it                                   | minikube | admin1 | v1.27.1 | 13 Oct 22 13:44 IST |                     |
+|         | my-nginx-7f9485cc84-sw558 bash                |          |        |         |                     |                     |
+| kubectl | -- exec -it                                   | minikube | admin1 | v1.27.1 | 13 Oct 22 13:52 IST |                     |
+|         | my-nginx-7f9485cc84-mb8sx bash                |          |        |         |                     |                     |
+| kubectl | -- apply -f nginxconfmap.yml                  | minikube | admin1 | v1.27.1 | 13 Oct 22 14:01 IST |                     |
+| kubectl | -- apply -f nginxconfmap.yml                  | minikube | admin1 | v1.27.1 | 13 Oct 22 14:03 IST |                     |
+| kubectl | -- apply -f nginxconfmap.yml                  | minikube | admin1 | v1.27.1 | 13 Oct 22 14:05 IST |                     |
+| kubectl | -- apply -f nginxconfmap.yml                  | minikube | admin1 | v1.27.1 | 13 Oct 22 14:29 IST | 13 Oct 22 14:29 IST |
+| kubectl | -- get all                                    | minikube | admin1 | v1.27.1 | 13 Oct 22 14:29 IST | 13 Oct 22 14:29 IST |
+| kubectl | -- exec -it                                   | minikube | admin1 | v1.27.1 | 13 Oct 22 14:30 IST |                     |
+|         | nginx-deployment-b947f7cf4-k657j              |          |        |         |                     |                     |
+|         | bash                                          |          |        |         |                     |                     |
+| kubectl | -- logs pod                                   | minikube | admin1 | v1.27.1 | 13 Oct 22 14:31 IST |                     |
+|         | nginx-deployment-b947f7cf4-k657j              |          |        |         |                     |                     |
+| kubectl | -- logs                                       | minikube | admin1 | v1.27.1 | 13 Oct 22 14:31 IST | 13 Oct 22 14:31 IST |
+|         | nginx-deployment-b947f7cf4-k657j              |          |        |         |                     |                     |
+| kubectl | -- logs                                       | minikube | admin1 | v1.27.1 | 13 Oct 22 14:33 IST | 13 Oct 22 14:33 IST |
+|         | nginx-deployment-b947f7cf4-pmk6v              |          |        |         |                     |                     |
+| kubectl | -- exec -it                                   | minikube | admin1 | v1.27.1 | 13 Oct 22 14:33 IST |                     |
+|         | nginx-deployment-b947f7cf4-pmk6v              |          |        |         |                     |                     |
+|         | bash                                          |          |        |         |                     |                     |
+| kubectl | -- get po                                     | minikube | admin1 | v1.27.1 | 13 Oct 22 14:40 IST | 13 Oct 22 14:40 IST |
+| kubectl | -- exec -it                                   | minikube | admin1 | v1.27.1 | 13 Oct 22 14:41 IST |                     |
+|         | nginx-deployment-b947f7cf4-k657j              |          |        |         |                     |                     |
+|         | bash                                          |          |        |         |                     |                     |
+| kubectl | -- exec -it                                   | minikube | admin1 | v1.27.1 | 13 Oct 22 14:44 IST |                     |
+|         | nginx-deployment-b947f7cf4-k657j              |          |        |         |                     |                     |
+|         | bash                                          |          |        |         |                     |                     |
+| kubectl | -- apply -f deplyoment.yml                    | minikube | admin1 | v1.27.1 | 13 Oct 22 14:47 IST | 13 Oct 22 14:47 IST |
+| kubectl | -- get all                                    | minikube | admin1 | v1.27.1 | 13 Oct 22 14:47 IST | 13 Oct 22 14:47 IST |
+| kubectl | -- exec -it                                   | minikube | admin1 | v1.27.1 | 13 Oct 22 14:48 IST |                     |
+|         | my-nginx-7f9485cc84-sw558 bash                |          |        |         |                     |                     |
+| kubectl | -- get all                                    | minikube | admin1 | v1.27.1 | 13 Oct 22 14:50 IST | 13 Oct 22 14:50 IST |
+| kubectl | -- delete deployment my-httpd                 | minikube | admin1 | v1.27.1 | 13 Oct 22 14:51 IST | 13 Oct 22 14:51 IST |
+|         | my-nginx                                      |          |        |         |                     |                     |
+| kubectl | -- delete deployment                          | minikube | admin1 | v1.27.1 | 13 Oct 22 14:52 IST | 13 Oct 22 14:52 IST |
+|         | nginx-deployment                              |          |        |         |                     |                     |
+| kubectl | -- get po                                     | minikube | admin1 | v1.27.1 | 13 Oct 22 14:52 IST | 13 Oct 22 14:52 IST |
+| kubectl | -- get all                                    | minikube | admin1 | v1.27.1 | 13 Oct 22 14:52 IST | 13 Oct 22 14:52 IST |
+| kubectl | -- delete service my-nginx                    | minikube | admin1 | v1.27.1 | 13 Oct 22 14:53 IST | 13 Oct 22 14:53 IST |
+| kubectl | -- get all                                    | minikube | admin1 | v1.27.1 | 13 Oct 22 14:53 IST | 13 Oct 22 14:53 IST |
+| kubectl | -- apply -f deplyoment.yml                    | minikube | admin1 | v1.27.1 | 13 Oct 22 14:56 IST | 13 Oct 22 14:56 IST |
+| kubectl | -- get all                                    | minikube | admin1 | v1.27.1 | 13 Oct 22 14:56 IST | 13 Oct 22 14:56 IST |
+| kubectl | -- exec -it                                   | minikube | admin1 | v1.27.1 | 13 Oct 22 14:56 IST |                     |
+|         | my-nginx-5fbf8948c4-cgsj5 bash                |          |        |         |                     |                     |
+| kubectl | -- exec -it                                   | minikube | admin1 | v1.27.1 | 13 Oct 22 14:58 IST |                     |
+|         | my-nginx-5fbf8948c4-cgsj5 bash                |          |        |         |                     |                     |
+| kubectl | -- apply -f nginxconfmap.yml                  | minikube | admin1 | v1.27.1 | 13 Oct 22 15:06 IST |                     |
+| kubectl | -- apply -f nginxconfmap.yml                  | minikube | admin1 | v1.27.1 | 13 Oct 22 15:07 IST |                     |
+| mount   | /home/admin1/Documents/kubernetes/data:/data2 | minikube | admin1 | v1.27.1 | 13 Oct 22 15:10 IST |                     |
+| start   |                                               | minikube | admin1 | v1.27.1 | 13 Oct 22 15:10 IST |                     |
+| mount   | /home/admin1/Documents/kubernetes/data:/data2 | minikube | admin1 | v1.27.1 | 13 Oct 22 15:10 IST |                     |
+| mount   | /home/admin1/Documents/kubernetes/data:/data2 | minikube | admin1 | v1.27.1 | 13 Oct 22 15:10 IST |                     |
+|---------|-----------------------------------------------|----------|--------|---------|---------------------|---------------------|
+
+* 
+* ==> Last Start <==
+* Log file created at: 2022/10/13 15:10:21
+Running on machine: admin1-Lenovo-ThinkBook-14-IIL
+Binary: Built with gc go1.19.1 for linux/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I1013 15:10:21.083241  837850 out.go:296] Setting OutFile to fd 1 ...
+I1013 15:10:21.083340  837850 out.go:348] isatty.IsTerminal(1) = true
+I1013 15:10:21.083343  837850 out.go:309] Setting ErrFile to fd 2...
+I1013 15:10:21.083346  837850 out.go:348] isatty.IsTerminal(2) = true
+I1013 15:10:21.083422  837850 root.go:333] Updating PATH: /home/admin1/.minikube/bin
+W1013 15:10:21.083501  837850 root.go:310] Error reading config file at /home/admin1/.minikube/config/config.json: open /home/admin1/.minikube/config/config.json: no such file or directory
+I1013 15:10:21.083856  837850 out.go:303] Setting JSON to false
+I1013 15:10:21.104613  837850 start.go:116] hostinfo: {"hostname":"admin1-Lenovo-ThinkBook-14-IIL","uptime":2343925,"bootTime":1663310096,"procs":351,"os":"linux","platform":"ubuntu","platformFamily":"debian","platformVersion":"20.04","kernelVersion":"5.15.0-46-generic","kernelArch":"x86_64","virtualizationSystem":"kvm","virtualizationRole":"host","hostId":"db30a122-d2ba-4665-8886-f04dcc75f266"}
+I1013 15:10:21.104666  837850 start.go:126] virtualization: kvm host
+I1013 15:10:21.107748  837850 out.go:177] 😄  minikube v1.27.1 on Ubuntu 20.04
+I1013 15:10:21.113243  837850 notify.go:220] Checking for updates...
+I1013 15:10:21.113430  837850 config.go:180] Loaded profile config "minikube": Driver=docker, ContainerRuntime=docker, KubernetesVersion=v1.25.2
+I1013 15:10:21.113473  837850 driver.go:362] Setting default libvirt URI to qemu:///system
+W1013 15:10:21.137052  837850 docker.go:113] docker version returned error: exit status 1
+I1013 15:10:21.139926  837850 out.go:177] ✨  Using the docker driver based on existing profile
+I1013 15:10:21.142773  837850 start.go:282] selected driver: docker
+I1013 15:10:21.142780  837850 start.go:808] validating driver "docker" against &{Name:minikube KeepContext:false EmbedCerts:false MinikubeISO: KicBaseImage:gcr.io/k8s-minikube/kicbase:v0.0.35@sha256:e6f9b2700841634f3b94907f9cfa6785ca4409ef8e428a0322c1781e809d311b Memory:2200 CPUs:2 DiskSize:20000 VMDriver: Driver:docker HyperkitVpnKitSock: HyperkitVSockPorts:[] DockerEnv:[] ContainerVolumeMounts:[] InsecureRegistry:[] RegistryMirror:[] HostOnlyCIDR:192.168.59.1/24 HypervVirtualSwitch: HypervUseExternalSwitch:false HypervExternalAdapter: KVMNetwork:default KVMQemuURI:qemu:///system KVMGPU:false KVMHidden:false KVMNUMACount:1 APIServerPort:0 DockerOpt:[] DisableDriverMounts:false NFSShare:[] NFSSharesRoot:/nfsshares UUID: NoVTXCheck:false DNSProxy:false HostDNSResolver:true HostOnlyNicType:virtio NatNicType:virtio SSHIPAddress: SSHUser:root SSHKey: SSHPort:22 KubernetesConfig:{KubernetesVersion:v1.25.2 ClusterName:minikube Namespace:default APIServerName:minikubeCA APIServerNames:[] APIServerIPs:[] DNSDomain:cluster.local ContainerRuntime:docker CRISocket: NetworkPlugin: FeatureGates: ServiceCIDR:10.96.0.0/12 ImageRepository: LoadBalancerStartIP: LoadBalancerEndIP: CustomIngressCert: RegistryAliases: ExtraOptions:[] ShouldLoadCachedImages:true EnableDefaultCNI:false CNI: NodeIP: NodePort:8443 NodeName:} Nodes:[{Name: IP:192.168.49.2 Port:8443 KubernetesVersion:v1.25.2 ContainerRuntime:docker ControlPlane:true Worker:true}] Addons:map[default-storageclass:true ingress:true storage-provisioner:true] CustomAddonImages:map[] CustomAddonRegistries:map[] VerifyComponents:map[apiserver:true system_pods:true] StartHostTimeout:6m0s ScheduledStop:<nil> ExposedPorts:[] ListenAddress: Network: Subnet: MultiNodeRequested:false ExtraDisks:0 CertExpiration:26280h0m0s Mount:false MountString:/home/admin1:/minikube-host Mount9PVersion:9p2000.L MountGID:docker MountIP: MountMSize:262144 MountOptions:[] MountPort:0 MountType:9p MountUID:docker BinaryMirror: DisableOptimizations:false DisableMetrics:false CustomQemuFirmwarePath: SocketVMnetClientPath:/opt/socket_vmnet/bin/socket_vmnet_client SocketVMnetPath:/var/run/socket_vmnet}
+I1013 15:10:21.142851  837850 start.go:819] status for docker: {Installed:true Healthy:false Running:true NeedsImprovement:false Error:"docker version --format {{.Server.Os}}-{{.Server.Version}}" exit status 1: Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get "http://%!F(MISSING)var%!F(MISSING)run%!F(MISSING)docker.sock/v1.24/version": dial unix /var/run/docker.sock: connect: permission denied Reason:PROVIDER_DOCKER_NEWGRP Fix:Add your user to the 'docker' group: 'sudo usermod -aG docker $USER && newgrp docker' Doc:https://docs.docker.com/engine/install/linux-postinstall/ Version:}
+I1013 15:10:21.145855  837850 out.go:177] 
+W1013 15:10:21.148641  837850 out.go:239] 💣  Exiting due to PROVIDER_DOCKER_NEWGRP: "docker version --format -" exit status 1: Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get "http://%!F(MISSING)var%!F(MISSING)run%!F(MISSING)docker.sock/v1.24/version": dial unix /var/run/docker.sock: connect: permission denied
+W1013 15:10:21.148695  837850 out.go:239] 💡  Suggestion: Add your user to the 'docker' group: 'sudo usermod -aG docker $USER && newgrp docker'
+W1013 15:10:21.148731  837850 out.go:239] 📘  Documentation: https://docs.docker.com/engine/install/linux-postinstall/
+I1013 15:10:21.151460  837850 out.go:177] 
+
+* 
